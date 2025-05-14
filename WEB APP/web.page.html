@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Cost Optimizer</title>
+  <link rel="stylesheet" href="web.page.css" />
+</head>
+<body>
+  <!-- Initial Screen -->
+  <div class="container" id="initialScreen">
+    <h1>Optimize Your<br />Cloud Costs<br />Automatically</h1>
+    <p>Smart, secure, and hands-free cloud savings.</p>
+    <button id="tryBtn">Try It Now</button>
+  </div>
+
+  <!-- After Click Screen -->
+ <section class="after-click hidden" id="afterClick">
+  <div class="container">
+    <div class="message-box">
+      ...
+    </div>
+  </div>
+      <h2>✅ Report Generated Successfully</h2>
+      <p>Your cloud cost optimization report is ready.</p>
+      <button id="emailButton">📧 Email Me the Report</button>
+    </div>
+  </section>
+
+  <script>
+    const tryBtn = document.getElementById("tryBtn");
+    const afterClickSection = document.getElementById("afterClick");
+    const initialScreen = document.getElementById("initialScreen");
+
+    if (tryBtn) {
+      tryBtn.addEventListener("click", () => {
+        initialScreen.classList.add("hidden");
+        afterClickSection.classList.remove("hidden");
+      });
+    }
+
+    document.getElementById("emailButton").addEventListener("click", () => {
+      alert("📨 Email functionality coming soon...");
+      // Later: Call Lambda or backend to send email
+    });
+  </script>
+</body>
+</html>
+
