@@ -63,21 +63,23 @@ document.addEventListener('DOMContentLoaded', function() {
             sendEmailViaAWS()
                 .then(function(response) {
                     console.log("Email sent successfully", response);
-                    
-                    // Show success message
-                    statusElement.classList.add('success');
-                    statusElement.classList.remove('error');
-                    statusElement.innerText = 'Report sent successfully!';
+
+                    if (statusElement) {
+                        statusElement.classList.add('success');
+                        statusElement.classList.remove('error');
+                        statusElement.innerText = 'Report sent successfully!';
+                    }
                     emailButton.innerText = 'Send Report via Email';
                     emailButton.disabled = false;
                 })
                 .catch(function(error) {
                     console.error("Failed to send email", error);
-                    
-                    // Show error message
-                    statusElement.classList.add('error');
-                    statusElement.classList.remove('success');
-                    statusElement.innerText = 'Failed to send report. Please try again.';
+
+                    if (statusElement) {
+                        statusElement.classList.add('error');
+                        statusElement.classList.remove('success');
+                        statusElement.innerText = 'Failed to send report. Please try again.';
+                    }
                     emailButton.innerText = 'Send Report via Email';
                     emailButton.disabled = false;
                 });
