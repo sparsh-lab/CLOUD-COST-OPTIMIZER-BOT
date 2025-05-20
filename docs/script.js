@@ -90,8 +90,8 @@ function sendEmailViaAWS() {
     console.log("Attempting to send email via AWS API");
 
     // Call the AWS API endpoint using fetch
-    return fetch('https://0a1gvq2q93.execute-api.ap-south-1.amazonaws.com/webapp', {
-        method: 'GET',
+    return fetch('https://xmyaqng582.execute-api.ap-south-1.amazonaws.com/default', {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
             // Add any required headers here, e.g., Authorization
@@ -125,5 +125,3 @@ function sendEmailViaAWS() {
         };
     });
 }
-
-
