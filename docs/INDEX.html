@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Cost Optimizer</title>
-  <link rel="stylesheet" href="web.page.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Cost Optimizer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Initial Screen -->
-  <div class="container" id="initialScreen">
-    <h1>Optimize Your<br />Cloud Costs<br />Automatically</h1>
-    <p>Smart, secure, and hands-free cloud savings.</p>
-    <button id="tryBtn">Try It Now</button>
-  </div>
-
-  <!-- After Click Screen -->
- <section class="after-click hidden" id="afterClick">
-  <div class="container">
-    <div class="message-box">
-      ...
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <svg viewBox="0 0 100 100" class="cloud-icon">
+                    <path d="M25,60 Q10,60 10,50 Q10,40 20,40 Q20,30 35,30 Q45,25 55,30 Q70,25 80,40 Q90,40 90,50 Q90,60 80,60 Z" />
+                    <path class="lightning" d="M55,40 L45,55 L55,55 L45,70" stroke="#f2f2f2" stroke-width="3" fill="none" />
+                </svg>
+            </div>
+            <h1>Cloud Cost Optimizer</h1>
+            <p>Monitor and optimize your cloud expenses with intelligent recommendations</p>
+            <button id="enterBtn" class="btn-black">Get Started</button>
+        </div>
     </div>
-  </div>
-      <h2>✅ Report Generated Successfully</h2>
-      <p>Your cloud cost optimization report is ready.</p>
-      <button id="emailButton">📧 Email Me the Report</button>
+    
+    <div id="gesture-overlay" class="gesture-overlay">
+        <div class="gesture-indicator">
+            <span>↓</span>
+        </div>
     </div>
-  </section>
-
-  <script>
-    const tryBtn = document.getElementById("tryBtn");
-    const afterClickSection = document.getElementById("afterClick");
-    const initialScreen = document.getElementById("initialScreen");
-
-    if (tryBtn) {
-      tryBtn.addEventListener("click", () => {
-        initialScreen.classList.add("hidden");
-        afterClickSection.classList.remove("hidden");
-      });
-    }
-
-    document.getElementById("emailButton").addEventListener("click", () => {
-      alert("📨 Email functionality coming soon...");
-      // Later: Call Lambda or backend to send email
-    });
-  </script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
-

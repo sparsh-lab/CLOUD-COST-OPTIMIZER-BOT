@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Cost Optimizer - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container dashboard">
+        <div class="sidebar">
+            <div class="logo-small">
+                <svg viewBox="0 0 100 100" class="cloud-icon-small">
+                    <path d="M25,60 Q10,60 10,50 Q10,40 20,40 Q20,30 35,30 Q45,25 55,30 Q70,25 80,40 Q90,40 90,50 Q90,60 80,60 Z" />
+                    <path class="lightning" d="M55,40 L45,55 L55,55 L45,70" stroke="#f2f2f2" stroke-width="3" fill="none" />
+                </svg>
+            </div>
+            <h2>Cost Optimizer</h2>
+            <nav>
+                <ul>
+                    <li class="active">Dashboard</li>
+                    <li>Reports</li>
+                    <li>Settings</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="main-content">
+            <header>
+                <h1>Dashboard</h1>
+                <div class="user-profile">
+                    <span>Admin</span>
+                    <div class="avatar"></div>
+                </div>
+            </header>
+            <div class="dashboard-content">
+                <div class="card report-card">
+                    <h3>Latest Cost Analysis</h3>
+                    <div class="savings-info">
+                        <div class="metric">
+                            <span class="value">23%</span>
+                            <span class="label">Potential Savings</span>
+                        </div>
+                        <div class="metric">
+                            <span class="value">7</span>
+                            <span class="label">Optimization Suggestions</span>
+                        </div>
+                    </div>
+                    <button id="emailBtn" class="btn-primary">Send Report via Email</button>
+                    <div id="emailStatus" class="status-message"></div>
+                </div>
+                <div class="card action-card">
+                    <h3>Quick Actions</h3>
+                    <button class="btn-secondary">Refresh Analysis</button>
+                    <button class="btn-secondary">Configure Rules</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page-gesture" class="gesture-overlay">
+        <div class="gesture-indicator">
+            <span>↓</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
