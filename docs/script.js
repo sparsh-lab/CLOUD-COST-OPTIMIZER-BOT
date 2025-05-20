@@ -73,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     emailButton.disabled = false;
                 })
                 .catch(function(error) {
-                    console.error("Failed to send email", error);
+                    console.error("Failed to send email", error); // This line is already here
+                    alert(JSON.stringify(error, null, 2)); // Add this line to see the real error
 
                     if (statusElement) {
                         statusElement.classList.add('error');
