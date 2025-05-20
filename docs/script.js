@@ -99,7 +99,10 @@ function sendEmailViaAWS() {
             'Content-Type': 'application/json'
             // Add any required headers here, e.g., Authorization
         },
-        body: JSON.stringify({ email: 'sparshkmr17@gmail.com', report: '...' })
+        body: JSON.stringify({
+            email: 'sparshkmr17@gmail.com',
+            report: '...'
+        })
     })
     .then(response => {
         if (!response.ok) {
