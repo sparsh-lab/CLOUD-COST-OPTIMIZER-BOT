@@ -93,7 +93,7 @@ function sendEmailViaAWS() {
     console.log("Attempting to send email via AWS API");
 
     // Call the AWS API endpoint using fetch
-    return fetch('https://lhzgkbcnak.execute-api.ap-south-1.amazonaws.com/', {
+    return fetch('https://lhzgkbcnak.execute-api.ap-south-1.amazonaws.com/optimization-bot', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
