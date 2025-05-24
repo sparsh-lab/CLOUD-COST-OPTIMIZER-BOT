@@ -63,24 +63,21 @@ document.addEventListener('DOMContentLoaded', function() {
             sendEmailViaAWS()
                 .then(function(response) {
                     console.log("Email sent successfully", response);
-
-                    if (statusElement) {
-                        statusElement.classList.add('success');
-                        statusElement.classList.remove('error');
-                        statusElement.innerText = 'Report sent successfully!';
-                    }
+                    
+                    // Show success message
+                    statusElement.classList.add('success');
+                    statusElement.classList.remove('error');
+                    statusElement.innerText = 'Report sent successfully!';
                     emailButton.innerText = 'Send Report via Email';
                     emailButton.disabled = false;
                 })
                 .catch(function(error) {
-                    console.error("Failed to send email", error); // This line is already here
-                    alert(JSON.stringify(error, null, 2)); // Add this line to see the real error
-
-                    if (statusElement) {
-                        statusElement.classList.add('error');
-                        statusElement.classList.remove('success');
-                        statusElement.innerText = 'Failed to send report. Please try again.';
-                    }
+                    console.error("Failed to send email", error);
+                    
+                    // Show error message
+                    statusElement.classList.add('error');
+                    statusElement.classList.remove('success');
+                    statusElement.innerText = 'Failed to send report. Please try again.';
                     emailButton.innerText = 'Send Report via Email';
                     emailButton.disabled = false;
                 });
@@ -91,43 +88,32 @@ document.addEventListener('DOMContentLoaded', function() {
 // AWS API Integration Function
 function sendEmailViaAWS() {
     console.log("Attempting to send email via AWS API");
-
-    // Call the AWS API endpoint using fetch
-    return fetch('https://lhzgkbcnak.execute-api.ap-south-1.amazonaws.com/optimization-bot', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-            // Add any required headers here, e.g., Authorization
-        },
-        body: JSON.stringify({
-            email: 'sparshkmr17@gmail.com',
-            report: '...'
-        })
-    })
-    .then(response => {
-        if (!response.ok) {
-            return response.json().then(err => {
-                throw {
+    
+    // ========== REPLACE THIS SECTION WITH YOUR AWS API CODE ==========
+    // This is a placeholder function that simulates an API call
+    // Replace with your actual AWS API integration code
+    
+    return new Promise((resolve, reject) => {
+        // Simulating network request with 1.5 second delay
+        console.log("Making API request to AWS...");
+        
+        setTimeout(() => {
+            // Simulate 80% success rate for testing
+            if (Math.random() < 0.8) {
+                resolve({
+                    success: true,
+                    message: 'Email sent successfully',
+                    timestamp: new Date().toISOString()
+                });
+            } else {
+                reject({
                     success: false,
                     message: 'Failed to send email',
-                    error: err,
+                    error: 'API Error 403: Unauthorized',
                     timestamp: new Date().toISOString()
-                };
-            });
-        }
-        return response.json().then(data => ({
-            success: true,
-            message: 'Email sent successfully',
-            data: data,
-            timestamp: new Date().toISOString()
-        }));
-    })
-    .catch(error => {
-        throw {
-            success: false,
-            message: 'Failed to send email',
-            error: error,
-            timestamp: new Date().toISOString()
-        };
+                });
+            }
+        }, 1500);
     });
+    // ========== END OF SECTION TO REPLACE ==========
 }
